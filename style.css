@@ -873,12 +873,6 @@ body.dark-mode .timeline-company {
     .timeline-item:nth-child(odd) .timeline-content {
         text-align: left;
     }
-
-    .contact-content {
-    }
-    
-    .contact-info {
-    }
 }
 
 @media (max-width: 576px) {
