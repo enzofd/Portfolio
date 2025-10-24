@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet : Audit Stratégique Ubisoft - Enzo Francisco-Delagis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+<style>
+        /* Styles spécifiques (identiques aux autres pages projet) */
+        .project-header {
+            text-align: center; padding: 100px 20px 60px;
+            /* CORRECTION: Utilisation du dégradé standard bleu */
+             background: linear-gradient(135deg, rgba(52, 152, 219, 0.9), rgba(44, 62, 80, 0.9)); 
+            color: #fff;
+        }
+        .project-header .category {
+            font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+            font-family: var(--primary-font); font-weight: 600;
+        }
+        .project-header h1 { color: #fff; font-size: 3.2rem; margin-bottom: 20px; }
+        .project-header .intro-text { max-width: 800px; margin: 0 auto; font-size: 1.2rem; font-weight: 300; line-height: 1.6; }
+        .project-content-body { padding: 60px 0; }
+        .project-overview { background-color: var(--bg-light); border: 1px solid var(--border-color); padding: 40px; border-radius: 10px; box-shadow: var(--shadow); margin-bottom: 60px; }
+        .project-overview h2 { font-size: 2rem; margin-bottom: 30px; text-align: center; }
+        .overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .overview-item { padding: 20px; background: var(--bg-color); border-radius: 8px; border: 1px solid var(--border-color); text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+        .overview-item h3 { font-size: 1.2rem; color: var(--primary-color); margin-bottom: 10px; }
+        .overview-item p { font-size: 0.95rem; margin-bottom: 0; }
+        .pillar { margin-bottom: 50px; }
+        .pillar h3.section-title { font-size: 2rem; margin-bottom: 30px; color: var(--secondary-color); text-align: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; display: inline-block; position: relative; left: 50%; transform: translateX(-50%); } 
+        .pillar h3.section-title::after { display: none; } 
+        .pillar-item { display: flex; align-items: flex-start; gap: 30px; margin-bottom: 40px; padding: 25px; background: var(--bg-light); border-radius: 10px; border: 1px solid var(--border-color); box-shadow: var(--shadow); transition: transform 0.3s ease; }
+        .pillar-item:hover { transform: translateY(-5px); }
+        .pillar-item .icon-box { flex-shrink: 0; width: 60px; height: 60px; background: var(--primary-color); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; color: #fff; }
+        .pillar-item .content { flex-grow: 1; }
+        .pillar-item .content h4 { font-size: 1.4rem; margin-top: 0; margin-bottom: 10px; color: var(--heading-color); }
+        .pillar-item .content ul { list-style: disc; padding-left: 20px; margin-top: 10px; }
+        .pillar-item .content ul li { margin-bottom: 8px; font-size: 0.95rem; }
+         .pillar-item .content ul li strong { font-weight: 600; color: var(--heading-color); }
+        .back-to-home { text-align: center; margin-top: 60px; }
+        .back-to-home .btn { font-size: 1rem; padding: 12px 30px; }
+
+        /* Dark mode adjustments */
+        body.dark-mode .project-header { background: linear-gradient(135deg, rgba(52, 152, 219, 0.7), rgba(26, 26, 26, 0.9)); } /* Garde le dégradé bleu sombre standard */
+        body.dark-mode .project-overview, body.dark-mode .pillar-item { background: var(--bg-color); border-color: var(--border-color); box-shadow: var(--shadow); }
+        body.dark-mode .project-overview .overview-item { background: var(--bg-light); border-color: var(--border-color); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        body.dark-mode .pillar h3.section-title { color: var(--heading-color); border-color: var(--primary-color); }
+        body.dark-mode .pillar-item .content ul li strong { color: var(--heading-color); }
+
+        @media (max-width: 768px) {
+            .project-header h1 { font-size: 2.5rem; }
+            .project-header .intro-text { font-size: 1rem; }
+            .project-overview h2, .pillar h3 { font-size: 1.8rem; }
+            .pillar-item { flex-direction: column; align-items: center; text-align: center; }
+            .pillar-item .icon-box { margin-bottom: 15px; }
+            .pillar-item .content ul { padding-left: 0; list-style-position: inside; }
+        }
+</style>
+</head>
+<body>
+
+    <header id="header">
+        <nav class="container">
+            <a href="index.html" class="logo">Enzo Francisco-Delagis</a> 
+             <div class="theme-switch">
+                <input type="checkbox" id="theme-toggle">
+                <label for="theme-toggle" class="slider">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </label>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-header">
+             {/* ... Contenu du header du projet Ubisoft ... */}
+             <div class="container fade-in">
+                <span class="category">Analyse Stratégique / E-Réputation / Marketing Gaming</span>
+                <h1>Audit Stratégique & E-Réputation : Ubisoft (Projet Académique)</h1>
+                <p class="intro-text">Ce projet, réalisé dans le cadre de ma formation, consiste en une analyse de la marque Ubisoft, de son positionnement sur le marché concurrentiel du jeu vidéo et de sa perception en ligne (e-réputation).</p>
+            </div>
+        </section>
+
+        <section class="project-content-body container">
+            {/* ... Contenu détaillé du projet Ubisoft (Overview, Piliers, etc.) ... */}
+             <div class="project-overview fade-in">
+                <h2>Aperçu du Projet</h2>
+                <div class="overview-grid">
+                    <div class="overview-item">
+                        <h3>Contexte</h3>
+                        <p>Analyse de la position d'Ubisoft face aux évolutions du marché (cloud gaming, modèles économiques) et à la gestion de communautés en ligne actives.</p>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Objectifs</h3>
+                        <p>Identifier les forces/faiblesses de la marque, évaluer sa réputation en ligne et proposer des pistes d'amélioration marketing/communication.</p>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Rôle</h3>
+                        <p>Étudiant en Marketing & Communication menant une analyse stratégique simulée.</p>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Outils (Conceptuels)</h3>
+                        <p>Veille (Alertes Google, Reddit), Analyse de sentiment (simulée via IA), Benchmark concurrentiel, SWOT, Google Trends.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pillar fade-in">
+                <h3 class="section-title">Analyse de la Marque et du Positionnement</h3>
+                <div class="pillar-item">
+                    <div class="icon-box"><i class="fas fa-flag-checkered"></i></div>
+                    <div class="content">
+                        <h4>Identité et Communication d'Ubisoft</h4>
+                        <ul>
+                            <li><strong>Positionnement Clé :</strong> Créateur de mondes ouverts immersifs et diversifiés (Assassin's Creed, Far Cry, The Division, etc.). Forte présence internationale.</li>
+                            <li><strong>Cibles :</strong> Audience large, allant des joueurs "core" aux joueurs plus occasionnels, sur consoles et PC principalement.</li>
+                            <li><strong>Canaux de Communication :</strong> Événements "Ubisoft Forward", trailers cinématographiques, forte présence sur YouTube/Twitch, réseaux sociaux dédiés par franchise.</li>
+                            <li><strong>Compétences démontrées</strong> : Analyse de marque, Compréhension du positionnement marché.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pillar fade-in">
+                <h3 class="section-title">Audit de l'E-Réputation</h3>
+                <div class="pillar-item">
+                    <div class="icon-box"><i class="fas fa-comments"></i></div>
+                    <div class="content">
+                        <h4>Perception en Ligne (Analyse Simulée)</h4>
+                        <ul>
+                            <li><strong>Plateformes analysées (Veille) :</strong> Reddit (r/gaming, subreddits dédiés), Twitter/X (hashtags #Ubisoft, noms de jeux), YouTube (commentaires sous trailers/reviews), Sites de reviews (Metacritic, Steam), Forums spécialisés (JeuxVideo.com).</li>
+                            <li><strong>Sentiment Général :</strong> Mixte. Enthousiasme pour les nouvelles annonces et certaines franchises établies. Critiques récurrentes sur la monétisation (microtransactions), les bugs au lancement, et une perception de "formule Ubisoft" répétitive pour certains jeux.</li>
+                            <li><strong>Sujets Fréquents :</strong> Attentes pour les prochains Assassin's Creed/Far Cry, discussions sur Ubisoft+, comparaisons avec d'autres éditeurs, réactions aux annonces corporate.</li>
+                            <li><strong>Compétences démontrées</strong> : Veille e-réputation, Identification des plateformes clés, Analyse de sentiment (conceptuelle).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+             <div class="pillar fade-in">
+                <h3 class="section-title">Benchmark Concurrentiel</h3>
+                <div class="pillar-item">
+                    <div class="icon-box"><i class="fas fa-balance-scale"></i></div>
+                    <div class="content">
+                        <h4>Positionnement face aux Acteurs Majeurs</h4>
+                        <ul>
+                            <li><strong>Concurrents Principaux :</strong> EA, Activision Blizzard, Take-Two Interactive, Sony Interactive Entertainment, Microsoft Gaming.</li>
+                            <li><strong>Points de Comparaison :</strong> Diversité du portefeuille de jeux (avantage Ubisoft), Modèles économiques (Ubisoft+ vs Game Pass vs Achat unique), Stratégies de communication (événements vs annonces continues), Gestion de communauté.</li>
+                            <li><strong>Différenciation :</strong> Ubisoft se distingue par sa forte expertise dans les mondes ouverts et sa présence multi-plateforme historique.</li>
+                            <li><strong>Compétences démontrées</strong> : Analyse concurrentielle, Compréhension de l'écosystème gaming.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+             <div class="pillar fade-in">
+                <h3 class="section-title">Analyse SWOT Synthétique</h3>
+                <div class="pillar-item">
+                    <div class="icon-box"><i class="fas fa-th"></i></div>
+                    <div class="content">
+                        <h4>Forces, Faiblesses, Opportunités, Menaces</h4>
+                        <ul>
+                            <li><strong>Forces :</strong> Catalogue d'IPs fortes et reconnues mondialement, studios de développement talentueux, expertise des mondes ouverts.</li>
+                            <li><strong>Faiblesses :</strong> Perception de manque d'innovation sur certaines licences, critiques sur la monétisation agressive, lancements parfois techniquement perfectibles.</li>
+                            <li><strong>Opportunités :</strong> Croissance du marché du jeu mobile, potentiel d'Ubisoft+ (abonnement), diversification des genres, adaptation de licences au cinéma/TV.</li>
+                            <li><strong>Menaces :</strong> Concurrence accrue (rachats, exclusivités), augmentation des coûts de développement, risque de lassitude des joueurs ("Ubisoft formula"), bad buzz potentiels.</li>
+                            <li><strong>Compétences démontrées</strong> : Synthèse stratégique, Application du modèle SWOT.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pillar fade-in">
+                <h3 class="section-title">Recommandations Marketing & Communication</h3>
+                 <div class="pillar-item">
+                    <div class="icon-box"><i class="fas fa-directions"></i></div>
+                    <div class="content">
+                        <h4>Pistes d'Amélioration (Issues de l'Analyse)</h4>
+                        <ul>
+                            <li><strong>Communication Transparente :</strong> Renforcer la communication post-lancement sur les mises à jour et corrections de bugs pour regagner la confiance (ex: roadmaps claires, blogs de développeurs).</li>
+                            <li><strong>Valorisation d'Ubisoft+ :</strong> Mieux communiquer la valeur ajoutée de l'abonnement (accès day one, catalogue, éditions premium) via des campagnes ciblées (e-mailing, partenariats).</li>
+                            <li><strong>Gestion de Communauté Proactive :</strong> Intervenir plus activement sur les plateformes clés (Reddit, forums) pour répondre aux préoccupations et valoriser les retours constructifs.</li>
+                            <li><strong>Mise en avant de l'Innovation :</strong> Communiquer davantage sur les nouvelles mécaniques de gameplay ou les prises de risque créatives au sein des franchises existantes ou nouvelles.</li>
+                            <li><strong>Compétences démontrées</strong> : Formulation de recommandations stratégiques, Orientation solution, Vision communicationnelle.</li>
+                        </ul>
+                    </div>
+                 </div>
+            </div>
+
+            <div class="back-to-home fade-in">
+                <a href="index.html#projets" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Retour aux Projets</a>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        {/* ... (Footer identique) ... */}
+         <div class="container">
+            <p>&copy; 2025 Enzo FRANCISCO-DELAGIS. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/enzo-francisco-delagis/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script> 
+</body>
+</html>

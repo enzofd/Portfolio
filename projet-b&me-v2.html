@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet : Stratégie B&Me Locale (B&B Hôtel Meudon) - Enzo Francisco-Delagis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+<style>
+        /* Styles spécifiques à cette page de projet si nécessaire, sinon votre style.css suffit */
+        .project-header {
+            text-align: center;
+            padding: 100px 20px 60px;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.9), rgba(44, 62, 80, 0.9));
+            color: #fff;
+        }
+        .project-header .category {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-family: var(--primary-font);
+            font-weight: 600;
+        }
+        .project-header h1 {
+            color: #fff;
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+        }
+        .project-header .intro-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        .project-content-body {
+            padding: 60px 0;
+        }
+        .project-overview {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+        }
+        .project-overview h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .overview-item {
+            padding: 20px;
+            background: var(--bg-color);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .overview-item h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .overview-item p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        .pillar {
+            margin-bottom: 50px;
+        }
+        .pillar h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+        .pillar-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: var(--bg-light);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        .pillar-item:hover {
+            transform: translateY(-5px);
+        }
+        .pillar-item .icon-box {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+        .pillar-item .content {
+            flex-grow: 1;
+        }
+        .pillar-item .content h4 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--heading-color);
+        }
+        .pillar-item .content ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        .pillar-item .content ul li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+         /* Style pour mettre en gras les "sous-titres" dans les listes */
+         .pillar-item .content ul li strong {
+            font-weight: 600;
+            color: var(--heading-color); /* Optionnel: couleur légèrement différente */
+        }
+        .back-to-home {
+            text-align: center;
+            margin-top: 60px;
+        }
+        .back-to-home .btn {
+            font-size: 1rem;
+            padding: 12px 30px;
+        }
+
+        /* Dark mode adjustments for project page */
+        body.dark-mode .project-header {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.7), rgba(26, 26, 26, 0.9));
+        }
+        body.dark-mode .project-overview,
+        body.dark-mode .pillar-item {
+            background: var(--bg-color); /* Utilise le bg-color sombre */
+            border-color: var(--border-color);
+            box-shadow: var(--shadow);
+        }
+        body.dark-mode .project-overview .overview-item {
+            background: var(--bg-light); /* Utilise le bg-light sombre */
+            border-color: var(--border-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        body.dark-mode .pillar h3 {
+            color: var(--heading-color);
+        }
+         /* Style gras en mode sombre */
+        body.dark-mode .pillar-item .content ul li strong {
+            color: var(--heading-color);
+        }
+
+        @media (max-width: 768px) {
+            .project-header h1 {
+                font-size: 2.5rem;
+            }
+            .project-header .intro-text {
+                font-size: 1rem;
+            }
+            .project-overview h2, .pillar h3 {
+                font-size: 1.8rem;
+            }
+            .pillar-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .pillar-item .icon-box {
+                margin-bottom: 15px;
+            }
+            .pillar-item .content ul {
+                padding-left: 0;
+                list-style-position: inside; /* Puces à l'intérieur pour le centrage */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <nav class="container">
+            <a href="index.html" class="logo">Enzo Francisco-Delagis</a>
+            <div class="theme-switch">
+                <input type="checkbox" id="theme-toggle">
+                <label for="theme-toggle" class="slider">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </label>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-header">
+            <div class="container fade-in">
+                <span class="category">Marketing Relationnel & Fidélisation Locale</span>
+                <h1>Campagne B&Me : Acquisition Client et KPI Locaux (B&B Meudon)</h1>
+                <p class="intro-text">Conception et suivi d'une campagne locale pour le programme B&Me, axée sur l'e-mailing, la relation client en réception et les jeux-concours, avec un reporting précis via LEANPMS et Google Sheets.</p>
+            </div>
+        </section>
+
+        <section class="project-content-body container">
+            <div class="project-overview fade-in">
+                <h2>Aperçu du Projet</h2>
+                <div class="overview-grid">
+                    <div class="overview-item">
+                        <h3>Contexte</h3>
+                        <p>Valoriser B&Me via les canaux locaux, indépendamment de la communication siège.</p>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Objectifs</h3>
+                        <p>Augmenter l'adhésion via réception/e-mail, mesurer l'impact des concours et analyser les canaux d'acquisition.</p>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Rôle</h3>
+                        <p>Définition des actions locales, création argumentaire, extraction et reporting des données.</p>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Outils</h3>
+                        <p>LEANPMS (PMS/CRM), E-mailing, Google Sheets, Canva (PLV), Relation Client.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pillar fade-in">
+                <h3 class="section-title">Pilier 1 : Activation en Réception & Jeux-Concours Locaux</h3>
+                <div class="pillar-item">
+                    <div class="icon-box"><i class="fas fa-user-check"></i></div>
+                    <div class="content">
+                        <h4>Protocole d'Adhésion et Scénario Commercial</h4>
+                        <ul>
+                            <li><strong>Rôle de la Réception :</strong> Développement d'un script de vente axé sur les bénéfices immédiats pour le client (participation au concours, avantage direct).</li>
+                            <li><strong>Argumentation :</strong> Message clé : "Devenez membre B&Me gratuitement aujourd'hui et participez à notre tirage au sort mensuel pour gagner un week-end à Disneyland !"</li>
+                            <li><strong>Traçabilité via LEANPMS :</strong> Le logiciel permettait d'identifier si l'inscription B&Me était réalisée directement par le personnel à la réception (via une option dédiée ou un code spécifique).</li>
+                            <li><strong>Compétences démontrées</strong> : Gestion de la relation client, Argumentaire de vente, Organisation opérationnelle.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pillar-item">
+                    <div class="icon-box"><i class="fas fa-trophy"></i></div>
+                    <div class="content">
+                        <h4>Mécanisme du Jeu-Concours Local</h4>
+                        <ul>
+                            <li><strong>Mécanisme :</strong> Adhésion B&Me (via réception ou e-mail tracé) = Participation automatique au tirage au sort mensuel.</li>
+                            <li><strong>Communication Visuelle Locale :</strong> Création de supports PLV (flyers, affiches A4) via Canva pour promouvoir le concours et le programme B&Me à la réception et dans les zones communes.</li>
+                            <li><strong>Compétences démontrées</strong> : Création de mécanismes promotionnels, Communication physique (PLV/Affichage), Rigueur (suivi des participations).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pillar fade-in">
+                <h3 class="section-title">Pilier 2 : Campagne d'Acquisition via E-mailing Ciblé</h3>
+                <div class="pillar-item">
+                    <div class="icon-box"><i class="fas fa-at"></i></div>
+                    <div class="content">
+                        <h4>Modèles d'E-mail de Pré-séjour et Post-séjour</h4>
+                        <ul>
+                            <li><strong>Acquisition (Pré-séjour) :</strong> Conception d'un e-mail envoyé X jours avant l'arrivée (aux non-membres identifiés via LEANPMS) proposant l'adhésion B&Me en échange d'un avantage (ex: participation au concours).</li>
+                            <li><strong>Rétention (Post-séjour) :</strong> Création d'un e-mail pour les membres B&Me après leur séjour, rappelant les avantages et promouvant une offre exclusive pour une prochaine réservation directe.</li>
+                            <li><strong>Ton :</strong> Rédaction avec un ton chaleureux et personnalisé, aligné avec l'esprit "B&Me".</li>
+                            <li><strong>Compétences démontrées</strong> : E-mail Marketing, Stratégie d'acquisition et de fidélisation, Rédaction marketing.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pillar-item">
+                    <div class="icon-box"><i class="fas fa-database"></i></div>
+                    <div class="content">
+                        <h4>Mise en place de la Traçabilité et Reporting</h4>
+                        <ul>
+                           <li><strong>Extraction des Données :</strong> Le logiciel LEANPMS permettait d'identifier les clients s'étant abonnés au programme B&Me et de distinguer le canal d'acquisition (réception vs e-mail via des codes spécifiques ou liens tracés).</li>
+                           <li><strong>Processus de Reporting :</strong> Je récoltais mensuellement ces informations depuis LEANPMS.</li>
+                           <li><strong>Compilation :</strong> Je synthétisais les données (nombre d'inscrits par canal, taux de conversion) dans le Google Sheet partagé de l'hôtel.</li>
+                           <li><strong>Transmission :</strong> Le gérant de l'hôtel utilisait ensuite ce fichier pour son reporting au siège de B&B Hôtels.</li>
+                           <li><strong>Compétences démontrées</strong> : Utilisation de PMS (LEANPMS), Extraction et traitement de données, Maîtrise de Google Sheets, Rigueur dans le reporting, Organisation.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pillar fade-in">
+                <h3 class="section-title">Pilier 3 : Analyse de Performance (KPI Locaux)</h3>
+                <div class="pillar-item">
+                    <div class="icon-box"><i class="fas fa-chart-bar"></i></div>
+                    <div class="content">
+                        <h4>Définition et Suivi des Indicateurs Clés (KPIs)</h4>
+                        <ul>
+                           <li><strong>Taux de Conversion Réception :</strong> (Nb adhésions réception / Nb check-ins non-membres) x 100. Objectif visé : 20%.</li>
+                           <li><strong>Taux de Conversion Email :</strong> (Nb adhésions via email / Nb emails envoyés) x 100.</li>
+                           <li><strong>Origine des Adhésions :</strong> Répartition (%) des nouveaux membres B&Me par canal (Réception, Email, Autre).</li>
+                           <li><strong>Coût par Adhésion (CPA) du Concours :</strong> Coût total du lot (ex: Week-end Disneyland) / Nombre total d'adhésions générées pendant la période du concours.</li>
+                           <li><strong>Compétences démontrées</strong> : Reporting et analyse de performance, Orientation résultats, Maîtrise de Google Sheets (pour le tableau de bord).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="back-to-home fade-in">
+                <a href="index.html#projets" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Retour aux Projets</a>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="container">
+            <p>&copy; 2025 Enzo FRANCISCO-DELAGIS. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/enzo-francisco-delagis/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

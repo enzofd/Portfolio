@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet : Explorations Digitales Autodidactes - Enzo Francisco-Delagis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+<style>
+        /* Styles spécifiques (identiques à l'autre page projet) */
+        .project-header {
+            text-align: center; padding: 100px 20px 60px;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.9), rgba(44, 62, 80, 0.9));
+            color: #fff;
+        }
+        .project-header .category {
+            font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+            font-family: var(--primary-font); font-weight: 600;
+        }
+        .project-header h1 { color: #fff; font-size: 3.2rem; margin-bottom: 20px; }
+        .project-header .intro-text { max-width: 800px; margin: 0 auto; font-size: 1.2rem; font-weight: 300; line-height: 1.6; }
+        .project-content-body { padding: 60px 0; }
+        .project-overview { background-color: var(--bg-light); border: 1px solid var(--border-color); padding: 40px; border-radius: 10px; box-shadow: var(--shadow); margin-bottom: 60px; }
+        .project-overview h2 { font-size: 2rem; margin-bottom: 30px; text-align: center; }
+        .overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .overview-item { padding: 20px; background: var(--bg-color); border-radius: 8px; border: 1px solid var(--border-color); text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+        .overview-item h3 { font-size: 1.2rem; color: var(--primary-color); margin-bottom: 10px; }
+        .overview-item p { font-size: 0.95rem; margin-bottom: 0; }
+        .pillar { margin-bottom: 50px; }
+        .pillar h3 { font-size: 2rem; margin-bottom: 20px; color: var(--secondary-color); text-align: center; }
+        .pillar-item { display: flex; align-items: flex-start; gap: 30px; margin-bottom: 40px; padding: 25px; background: var(--bg-light); border-radius: 10px; border: 1px solid var(--border-color); box-shadow: var(--shadow); transition: transform 0.3s ease; }
+        .pillar-item:hover { transform: translateY(-5px); }
+        .pillar-item .icon-box { flex-shrink: 0; width: 60px; height: 60px; background: var(--primary-color); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; color: #fff; }
+        .pillar-item .content { flex-grow: 1; }
+        .pillar-item .content h4 { font-size: 1.4rem; margin-top: 0; margin-bottom: 10px; color: var(--heading-color); }
+        .pillar-item .content ul { list-style: disc; padding-left: 20px; margin-top: 10px; }
+        .pillar-item .content ul li { margin-bottom: 8px; font-size: 0.95rem; }
+         .pillar-item .content ul li strong { font-weight: 600; color: var(--heading-color); }
+        .back-to-home { text-align: center; margin-top: 60px; }
+        .back-to-home .btn { font-size: 1rem; padding: 12px 30px; }
+
+        /* Dark mode adjustments */
+        body.dark-mode .project-header { background: linear-gradient(135deg, rgba(52, 152, 219, 0.7), rgba(26, 26, 26, 0.9)); }
+        body.dark-mode .project-overview, body.dark-mode .pillar-item { background: var(--bg-color); border-color: var(--border-color); box-shadow: var(--shadow); }
+        body.dark-mode .project-overview .overview-item { background: var(--bg-light); border-color: var(--border-color); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        body.dark-mode .pillar h3 { color: var(--heading-color); }
+        body.dark-mode .pillar-item .content ul li strong { color: var(--heading-color); }
+
+        @media (max-width: 768px) {
+            .project-header h1 { font-size: 2.5rem; }
+            .project-header .intro-text { font-size: 1rem; }
+            .project-overview h2, .pillar h3 { font-size: 1.8rem; }
+            .pillar-item { flex-direction: column; align-items: center; text-align: center; }
+            .pillar-item .icon-box { margin-bottom: 15px; }
+            .pillar-item .content ul { padding-left: 0; list-style-position: inside; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <nav class="container">
+            <a href="index.html" class="logo">Enzo Francisco-Delagis</a>
+            <div class="theme-switch">
+                <input type="checkbox" id="theme-toggle">
+                <label for="theme-toggle" class="slider">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </label>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-header">
+            <div class="container fade-in">
+                <span class="category">Initiative Personnelle & Création Digitale</span>
+                <h1>Explorations Digitales Autodidactes</h1>
+                <p class="intro-text">Ce projet illustre ma démarche proactive d'apprentissage et de création digitale. J'ai utilisé l'IA (ChatGPT/Gemini) pour m'assister dans la réalisation de trois projets concrets : ce portfolio, un jeu narratif simple et un site de statistiques pour le football.</p>
+            </div>
+        </section>
+
+        <section class="project-content-body container">
+            <div class="project-overview fade-in">
+                <h2>Aperçu de la Démarche</h2>
+                <div class="overview-grid">
+                    <div class="overview-item">
+                        <h3>Contexte</h3>
+                        <p>Volonté de démontrer mes compétences pratiques et ma curiosité au-delà du CV, en lien avec mes centres d'intérêt (Tech, Gaming, Sport).</p>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Objectifs</h3>
+                        <p>Prouver ma capacité à apprendre en autonomie, à utiliser des outils modernes (IA) et à concrétiser des idées digitales simples.</p>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Projets Réalisés</h3>
+                        <p>Portfolio Web (celui-ci), Jeu Narratif (concept/prototype), Site de Statistiques Football (concept/prototype).</p>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Outils</h3>
+                        <p>IA (ChatGPT/Gemini), Bases HTML/CSS/JS (assistées), Outils No-Code/Low-Code (potentiels), Google Sheets.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pillar fade-in">
+                <h3 class="section-title">Pilier 1 : Le Portfolio Web (Outil de Marketing Personnel)</h3>
+                <div class="pillar-item">
+                    <div class="icon-box"><i class="fas fa-lightbulb"></i></div>
+                    <div class="content">
+                        <h4>Objectif et Conception Assistée par IA</h4>
+                        <ul>
+                           <li><strong>Objectif :</strong> Créer un support pour "me vendre" efficacement, en complément du CV.</li>
+                           <li><strong>Rôle de l'IA :</strong> Brainstorming sur la structure et le contenu, aide à la formulation des textes, suggestions de design moderne.</li>
+                           <li><strong>Compétences démontrées</strong> : Définition d'objectifs, Organisation, Utilisation de l'IA pour la conception.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pillar-item">
+                    <div class="icon-box"><i class="fas fa-tools"></i></div>
+                    <div class="content">
+                        <h4>Réalisation Technique Assistée</h4>
+                        <ul>
+                           <li><strong>Démarche :</strong> Plutôt que d'apprendre le code en profondeur, j'ai utilisé l'IA pour générer les structures HTML/CSS/JS nécessaires à la mise en place des fonctionnalités souhaitées (navigation, mode sombre, animations).</li>
+                           <li><strong>Focus :</strong> Comprendre la logique générale et adapter le code généré, plutôt que de coder de zéro. L'IA a servi d'assistant pour résoudre les problèmes techniques rencontrés.</li>
+                           <li><strong>Compétences démontrées</strong> : Capacité à utiliser des outils pour atteindre un résultat, Résolution de problèmes, Adaptabilité.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pillar fade-in">
+                <h3 class="section-title">Pilier 2 : Exploration Créative (Jeu Narratif & Site de Stats)</h3>
+                 <div class="pillar-item">
+                    <div class="icon-box"><i class="fas fa-gamepad"></i></div>
+                    <div class="content">
+                        <h4>Concept de Jeu Narratif (Autodidacte)</h4>
+                        <ul>
+                           <li><strong>Idée :</strong> Créer une courte histoire interactive simple, en lien avec mes centres d'intérêt (ex: un scénario lié au voyage ou à la technologie).</li>
+                           <li><strong>Démarche :</strong> Exploration d'outils simples (potentiellement No-Code/Low-Code comme Twine, ou bases de JS assistées par IA) pour créer un prototype ou un concept détaillé.</li>
+                           <li><strong>Apprentissage :</strong> Compréhension des bases de la narration interactive et de la logique de jeu simple.</li>
+                           <li><strong>Compétences démontrées</strong> : Créativité, Curiosité pour de nouveaux formats, Initiative.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pillar-item">
+                    <div class="icon-box"><i class="fas fa-futbol"></i></div>
+                    <div class="content">
+                        <h4>Site de Statistiques Football (Passion Personnelle)</h4>
+                        <ul>
+                           <li><strong>Objectif :</strong> Créer un outil simple pour suivre et visualiser des statistiques de matchs de football (ex: pour mon équipe amateur ou des matchs suivis).</li>
+                           <li><strong>Réalisation :</strong> Utilisation probable de Google Sheets pour la base de données et exploration de solutions pour afficher ces données sur une page web simple (potentiellement via des outils d'intégration ou du code basique généré par IA).</li>
+                           <li><strong>Apprentissage :</strong> Manipulation de données simples, bases de la visualisation de données.</li>
+                           <li><strong>Compétences démontrées</strong> : Intérêt pour les données, Capacité à lier passion et projet digital, Organisation (gestion des stats).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pillar fade-in">
+                <h3 class="section-title">Résultats et Apprentissages Clés</h3>
+                 <div class="pillar-item">
+                    <div class="icon-box"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="content">
+                        <h4>Ce que cette démarche démontre :</h4>
+                        <ul>
+                            <li>Ma capacité à initier et mener des projets personnels de manière autonome.</li>
+                            <li>Mon aisance à utiliser les outils modernes, notamment l'IA, comme levier d'apprentissage et de productivité.</li>
+                            <li>Ma curiosité pour le digital et ma volonté d'explorer différents formats (web, jeu, data).</li>
+                            <li>Ma compréhension de l'importance de créer des supports concrets pour valoriser mes compétences.</li>
+                        </ul>
+                    </div>
+                 </div>
+            </div>
+
+            <div class="back-to-home fade-in">
+                <a href="index.html#projets" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Retour aux Projets</a>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="container">
+            <p>&copy; 2025 Enzo FRANCISCO-DELAGIS. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/enzo-francisco-delagis/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
