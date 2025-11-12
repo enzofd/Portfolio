@@ -178,6 +178,7 @@ ul {
 
 .nav-links {
     display: flex;
+    align-items: center; /* Aligner verticalement le nouveau menu */
 }
 
 .nav-links li {
@@ -219,6 +220,72 @@ ul {
     color: var(--heading-color);
     cursor: pointer;
 }
+
+/* NOUVEAUX STYLES: Menu Déroulant */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown-toggle {
+    cursor: default; /* Empêche le clic sur le lien principal */
+}
+
+.nav-dropdown-toggle i {
+    font-size: 0.8rem;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--bg-color);
+    box-shadow: var(--shadow-hover);
+    border-radius: 8px;
+    min-width: 180px;
+    z-index: 1001;
+    border: 1px solid var(--border-color);
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-dropdown:hover .nav-dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.dropdown-menu li a::after {
+    display: none; /* Pas de soulignement sur les liens du dropdown */
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+}
+/* FIN DES NOUVEAUX STYLES */
+
 
 /* ======== Section Héros ======== */
 .full-height {
@@ -757,6 +824,20 @@ body.dark-mode .menu-toggle {
     color: var(--heading-color);
 }
 
+/* NOUVEAUX STYLES: Dropdown Dark Mode */
+body.dark-mode .dropdown-menu {
+    background: var(--bg-light);
+    border-color: var(--border-color);
+}
+body.dark-mode .dropdown-menu li a {
+    color: var(--text-color);
+}
+body.dark-mode .dropdown-menu li a:hover {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+}
+/* FIN NOUVEAUX STYLES */
+
 body.dark-mode .skill-card,
 body.dark-mode .timeline-content,
 body.dark-mode .projet-card {
@@ -766,10 +847,10 @@ body.dark-mode .projet-card {
 
 /* Ajustement pour les timelines sur fonds alternés en dark mode */
 body.dark-mode #experience .timeline-content {
-    background: var(--bg-light); 
+    background: var(--bg-color); 
 }
 body.dark-mode #education .timeline-content {
-    background: var(--bg-color); 
+    background: var(--bg-light); 
 }
 
 body.dark-mode .timeline-item::after {
@@ -835,13 +916,45 @@ body.dark-mode .timeline-company {
     }
     
     .nav-links.active {
-        max-height: 400px; 
+        max-height: 500px; /* Augmenté pour le dropdown */
         padding: 20px 0;
     }
     
     .nav-links li {
         margin: 10px 0;
     }
+
+    /* NOUVEAUX STYLES: Dropdown Mobile */
+    .nav-dropdown {
+        width: 100%;
+        text-align: center;
+    }
+    .dropdown-menu {
+        display: block;
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        max-height: 0; /* Caché par défaut */
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+    .nav-dropdown-toggle:hover + .dropdown-menu, /* Ouvre au clic sur mobile (géré par JS) */
+    .nav-dropdown.open .dropdown-menu { /* Ouvre avec JS */
+        max-height: 300px; /* Hauteur pour 4 items */
+    }
+    .nav-dropdown-toggle i {
+        display: inline-block; /* S'assurer qu'il est visible */
+    }
+    .dropdown-menu li a {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+    /* FIN NOUVEAUX STYLES */
     
     body.dark-mode .nav-links.active {
         background: var(--bg-color);
@@ -879,4 +992,89 @@ body.dark-mode .timeline-company {
     .hero-content h1 { font-size: 2.5rem; }
     .hero-content .subtitle { font-size: 1.1rem; }
     .section-title { font-size: 2rem; }
+}
+
+/* ************************************************* */
+/* NOUVEAU: STYLES LIGHTBOX AJOUTÉS À LA FIN */
+/* ************************************************* */
+
+.lightbox {
+    display: none; /* Caché par défaut */
+    position: fixed; /* Reste en place */
+    z-index: 2000; /* Au-dessus de tout */
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.9);
+    cursor: pointer; /* Indique qu'on peut cliquer pour fermer */
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 800px;
+    max-height: 80vh;
+    object-fit: contain;
+    cursor: default; /* Curseur normal sur l'image */
+}
+
+#lightboxCaption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+
+/* Animation */
+.lightbox-content, #lightboxCaption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform: scale(0.1)} 
+    to {transform: scale(1)}
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-lightbox:hover,
+.close-lightbox:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+/* Rendre les images de galerie cliquables */
+.gallery-multi img,
+.gallery-single img,
+.projet-image img { /* AJOUT pour les images de projet */
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-multi img:hover,
+.gallery-single img:hover,
+.projet-image img:hover { /* AJOUT pour les images de projet */
+    opacity: 0.8;
+}
+
+/* Dark mode pour la lightbox */
+body.dark-mode .lightbox-content {
+    background-color: rgba(44, 44, 44, 0.1); /* Fond léger pour les images transparentes */
 }

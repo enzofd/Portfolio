@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musique - Enzo Francisco-Delagis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* Styles pour les pages de passions (réutilisables) */
+        .passion-header {
+            text-align: center; padding: 100px 20px 60px;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.9), rgba(44, 62, 80, 0.9));
+            color: #fff;
+        }
+        .passion-header .category {
+            font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+            font-family: var(--primary-font); font-weight: 600;
+        }
+        .passion-header h1 { color: #fff; font-size: 3.2rem; margin-bottom: 20px; }
+        .passion-header .intro-text { max-width: 800px; margin: 0 auto; font-size: 1.2rem; font-weight: 300; line-height: 1.6; }
+        
+        .passion-content {
+            padding: 60px 0;
+            /* Le fond (blanc ou image) est hérité du body/section de style.css */
+        }
+        
+        .content-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+        .content-card h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        .content-card ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+        .content-card ul li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        /* Galerie pour 1 seule image (Bad Bunny) */
+        .gallery-single {
+            display: grid;
+            grid-template-columns: minmax(250px, 60%); 
+            justify-content: center; 
+            margin-top: 25px;
+        }
+        .gallery-single img {
+            width: 100%; 
+            height: auto; 
+            max-height: 450px; 
+            object-fit: contain; /* L'image est entièrement visible */
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Dark mode */
+        body.dark-mode .passion-header { background: linear-gradient(135deg, rgba(52, 152, 219, 0.7), rgba(26, 26, 26, 0.9)); }
+        body.dark-mode .content-card { background: var(--bg-light); border-color: var(--border-color); }
+        body.dark-mode .content-card h2 { color: var(--heading-color); }
+        body.dark-mode .gallery-single img { border-color: var(--border-color); }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <nav class="container">
+            <a href="index.html" class="logo">Enzo Francisco-Delagis</a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">À propos</a></li>
+                <li><a href="index.html#skills">Compétences</a></li>
+                <li><a href="index.html#projets">Projets</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-toggle">Passions <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="sports.html">Sports</a></li>
+                        <li><a href="voyage.html">Voyage</a></li>
+                        <li><a href="gaming.html">Gaming</a></li>
+                        <li><a href="musique.html">Musique</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#experience">Expériences</a></li>
+                <li><a href="index.html#education">Formation</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="theme-switch">
+                <input type="checkbox" id="theme-toggle">
+                <label for="theme-toggle" class="slider">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </label>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="passion-header">
+            <div class="container fade-in">
+                <span class="category">Passion</span>
+                <h1>Musique</h1>
+                <p class="intro-text">De la découverte à Cuba à l'inspiration au quotidien, la musique est une partie intégrante de ma vie et de ma curiosité.</p>
+            </div>
+        </section>
+
+        <section class="passion-content section">
+            <div class="container">
+                
+                <div class="content-card fade-in">
+                    <h2>Le Déclic : Cuba (2017)</h2>
+                    <p>Mon <a href="voyage.html">voyage à Cuba</a> en 2017 a été une véritable révélation. Au-delà des paysages, j'ai découvert une culture musicale omniprésente et une énergie incroyable. C'est là qu'est né mon amour pour la musique latine, de la Salsa traditionnelle au Dembow et Reggaeton plus modernes.</p>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h2>Une Inspiration : Bad Bunny</h2>
+                    <p>Au fil des années, je suis devenu un grand fan de l'artiste portoricain Bad Bunny. Au-delà des rythmes entraînants de ses sons, je fais très attention aux paroles, et beaucoup de ses chansons me touchent personnellement.</p>
+                    <p>J'aime ce qu'il représente : l'authenticité, le courage de briser les codes et la fierté de ses racines. Il est une véritable source d'inspiration, montrant qu'on peut réussir à l'échelle mondiale sans compromettre son identité.</p>
+                    
+                    <div class="gallery-single">
+                        <img src="BadBunny.jpg" alt="Artiste Bad Bunny">
+                    </div>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h2>Mes Horizons Musicaux</h2>
+                    <p>Ma curiosité ne s'arrête pas à un seul genre. J'aime comprendre comment les musiques sont construites, ce qui fait leur succès et leur impact.</p>
+                    <ul>
+                        <li>J'adore des artistes à la production très travaillée comme <strong>The Weeknd</strong> ou <strong>Bruno Mars</strong>.</li>
+                        <li>Je continue d'explorer la scène latine avec des artistes comme <strong>Maluma</strong> et <strong>Rauw Alejandro</strong>.</li>
+                        <li>Je suis aussi un grand amateur de <strong>Rock</strong> et de <strong>Pop</strong>, avec une affection particulière pour les classiques des années 70, 80 et 90.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+         <div class="container">
+            <p>&copy; 2025 Enzo FRANCISCO-DELAGIS. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/enzo-francisco-delagis/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script> 
+</body>
+</html>

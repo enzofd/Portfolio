@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports - Enzo Francisco-Delagis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* Styles pour les pages de passions (réutilisables) */
+        .passion-header {
+            text-align: center; padding: 100px 20px 60px;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.9), rgba(44, 62, 80, 0.9));
+            color: #fff;
+        }
+        .passion-header .category {
+            font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+            font-family: var(--primary-font); font-weight: 600;
+        }
+        .passion-header h1 { color: #fff; font-size: 3.2rem; margin-bottom: 20px; }
+        .passion-header .intro-text { max-width: 800px; margin: 0 auto; font-size: 1.2rem; font-weight: 300; line-height: 1.6; }
+        
+        .passion-content {
+            padding: 60px 0;
+            /* Le fond (blanc ou image) est hérité du body/section de style.css */
+        }
+        
+        .content-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+        .content-card h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        .content-card ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+        .content-card ul li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        /* ************************************************* */
+        /* CORRECTION CSS AVEC NOUVEAUX NOMS DE CLASSE */
+        /* ************************************************* */
+
+        /* Pour les galeries à plusieurs images (PSG) */
+        .gallery-multi {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        .gallery-multi img {
+            width: 100%;
+            height: 250px; 
+            object-fit: cover; 
+            object-position: center center; /* Centre l'image dans le cadre par défaut */
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #fdfdfd; 
+        }
+        .gallery-multi img:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* AJOUT DE CETTE RÈGLE SPÉCIFIQUE POUR LA PREMIÈRE IMAGE DU PSG */
+        .gallery-multi img.psg-top-adjust {
+            object-position: center 70%; /* Centre horizontalement, descend l'image de 70% depuis le haut */
+        }
+
+        /* Pour la galerie à 1 seule image (Volley) */
+        .gallery-single {
+            display: grid;
+            grid-template-columns: minmax(250px, 60%); 
+            justify-content: center; 
+            margin-top: 25px;
+        }
+        .gallery-single img {
+            width: 100%; 
+            height: auto; 
+            max-height: 450px; 
+            object-fit: contain; 
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+        /* ************************************************* */
+
+
+        /* Dark mode */
+        body.dark-mode .passion-header { background: linear-gradient(135deg, rgba(52, 152, 219, 0.7), rgba(26, 26, 26, 0.9)); }
+        body.dark-mode .content-card { background: var(--bg-light); border-color: var(--border-color); }
+        body.dark-mode .content-card h2 { color: var(--heading-color); }
+        body.dark-mode .gallery-multi img, body.dark-mode .gallery-single img { border-color: var(--border-color); }
+        body.dark-mode .gallery-multi img { background: var(--bg-light); } 
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <nav class="container">
+            <a href="index.html" class="logo">Enzo Francisco-Delagis</a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">À propos</a></li>
+                <li><a href="index.html#skills">Compétences</a></li>
+                <li><a href="index.html#projets">Projets</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-toggle">Passions <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="sports.html">Sports</a></li>
+                        <li><a href="voyage.html">Voyage</a></li>
+                        <li><a href="gaming.html">Gaming</a></li>
+                        <li><a href="musique.html">Musique</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#experience">Expériences</a></li>
+                <li><a href="index.html#education">Formation</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="theme-switch">
+                <input type="checkbox" id="theme-toggle">
+                <label for="theme-toggle" class="slider">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </label>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="passion-header">
+            <div class="container fade-in">
+                <span class="category">Passion</span>
+                <h1>Sports & Compétition</h1>
+                <p class="intro-text">J'ai toujours aimé le sport et la compétition. C'est pour moi une école de discipline, de dépassement de soi et d'esprit d'équipe.</p>
+            </div>
+        </section>
+
+        <section class="passion-content section">
+            <div class="container">
+                
+                <div class="content-card fade-in">
+                    <h2>Volley-ball</h2>
+                    <p>Depuis plusieurs années, j'ai pratiqué le volley-ball en club, notamment à Massy où j'ai joué au niveau départemental. C'est un sport qui m'a tout appris sur la cohésion d'équipe, la communication instantanée et la stratégie. Aujourd'hui, je continue à jouer en loisir pour le plaisir du jeu.</p>
+                    
+                    <div class="gallery-single">
+                        <img src="Volley.jpg" alt="Enzo F-D Volley-ball Massy">
+                    </div>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h2>Football</h2>
+                    <p>Je n'en ai jamais fait en club, mais j'ai toujours été un grand passionné de football. Le Paris Saint-Germain est mon club de cœur et je suis leurs performances avec ferveur. C'est cet intérêt qui m'a d'ailleurs poussé à développer un projet de <a href="projet-portfolio.html">site de statistiques</a>.</p>
+                    
+                    <div class="gallery-multi">
+                         <img src="psg1.jpg" class="psg-top-adjust" alt="Passion PSG 1"> 
+                        <img src="psg2.jpg" alt="Passion PSG 2">
+                        <img src="psg3.jpg" alt="Passion PSG 3">
+                    </div>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h2>Autres Pratiques</h2>
+                    <p>Ma curiosité sportive m'a aussi amené à explorer d'autres disciplines qui m'ont beaucoup apporté :</p>
+                    <ul>
+                        <li><strong>Fitness :</strong> Je fréquente la salle de sport depuis 1 an pour l'entretien physique, la discipline et la gestion du stress.</li>
+                        <li><strong>Karaté :</strong> J'ai pratiqué cet art martial pendant 2 ans, atteignant la ceinture verte/bleue, ce qui m'a inculqué la maîtrise de soi et le respect.</li>
+                        <li><strong>Tennis :</strong> J'ai également joué au tennis pendant plusieurs années lorsque j'étais plus jeune.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+         <div class="container">
+            <p>&copy; 2025 Enzo FRANCISCO-DELAGIS. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/enzo-francisco-delagis/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script> 
+</body>
+</html>

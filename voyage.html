@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voyage - Enzo Francisco-Delagis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* Styles pour les pages de passions (réutilisables) */
+        .passion-header {
+            text-align: center; padding: 100px 20px 60px;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.9), rgba(44, 62, 80, 0.9));
+            color: #fff;
+        }
+        .passion-header .category {
+            font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+            font-family: var(--primary-font); font-weight: 600;
+        }
+        .passion-header h1 { color: #fff; font-size: 3.2rem; margin-bottom: 20px; }
+        .passion-header .intro-text { max-width: 800px; margin: 0 auto; font-size: 1.2rem; font-weight: 300; line-height: 1.6; }
+        
+        .passion-content {
+            padding: 60px 0;
+            /* Le fond (blanc ou image) est hérité du body/section de style.css */
+        }
+        
+        .content-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+        .content-card h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        .content-card ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+        .content-card ul li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        /* ************************************************* */
+        /* GALERIES PHOTOS */
+        /* ************************************************* */
+
+        /* Galerie pour plusieurs photos (Japon, NY, Mexique) */
+        .gallery-multi {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        .gallery-multi img {
+            width: 100%;
+            height: 250px; /* Conserver la hauteur pour une bonne présence */
+            object-fit: cover; /* Remplit le cadre, coupant si nécessaire */
+            object-position: center center; /* Centre l'image dans le cadre */
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Le background est inutile avec object-fit: cover */
+        }
+        .gallery-multi img:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Pour la galerie à 1 seule image (Cuba) */
+        .gallery-single {
+            display: grid;
+            grid-template-columns: minmax(250px, 60%); 
+            justify-content: center; 
+            margin-top: 25px;
+        }
+        .gallery-single img {
+            width: 100%; 
+            height: 450px; /* Hauteur fixe pour cette image */
+            object-fit: cover; /* Remplit le cadre, coupant si nécessaire */
+            object-position: center center; /* Centre l'image dans le cadre */
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+        /* ************************************************* */
+
+
+        /* Dark mode */
+        body.dark-mode .passion-header { background: linear-gradient(135deg, rgba(52, 152, 219, 0.7), rgba(26, 26, 26, 0.9)); }
+        body.dark-mode .content-card { background: var(--bg-light); border-color: var(--border-color); }
+        body.dark-mode .content-card h2 { color: var(--heading-color); }
+        /* Pas besoin de background spécifique avec object-fit: cover */
+        body.dark-mode .gallery-multi img, body.dark-mode .gallery-single img { border-color: var(--border-color); }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <nav class="container">
+            <a href="index.html" class="logo">Enzo Francisco-Delagis</a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">À propos</a></li>
+                <li><a href="index.html#skills">Compétences</a></li>
+                <li><a href="index.html#projets">Projets</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-toggle">Passions <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="sports.html">Sports</a></li>
+                        <li><a href="voyage.html">Voyage</a></li>
+                        <li><a href="gaming.html">Gaming</a></li>
+                        <li><a href="musique.html">Musique</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#experience">Expériences</a></li>
+                <li><a href="index.html#education">Formation</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="theme-switch">
+                <input type="checkbox" id="theme-toggle">
+                <label for="theme-toggle" class="slider">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </label>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="passion-header">
+            <div class="container fade-in">
+                <span class="category">Passion</span>
+                <h1>Voyages</h1>
+                <p class="intro-text">Explorer, découvrir et m'ouvrir au monde. Chaque voyage est une leçon de vie, une source d'inspiration et une aventure.</p>
+            </div>
+        </section>
+
+        <section class="passion-content section">
+            <div class="container">
+                
+                <div class="content-card fade-in">
+                    <h2>Japon (2023)</h2>
+                    <p>Depuis que je suis petit, j'ai toujours rêvé d'aller au Japon. C'était un objectif personnel fort. Pour mes 20 ans, j'ai travaillé et économisé pour concrétiser ce rêve et je suis parti explorer le pays pendant trois semaines. Ce voyage a été une incroyable leçon de respect, de culture et de découverte, de Tokyo à Kyoto.</p>
+                    
+                    <div class="gallery-multi">
+                        <img src="Japon1.jpg" alt="Voyage au Japon 1">
+                        <img src="Japon2.jpg" alt="Voyage au Japon 2">
+                    </div>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h2>New York & Mexique</h2>
+                    <p>Partager l'aventure est aussi important que l'aventure elle-même. J'ai eu la chance de découvrir l'énergie débordante de New York et la richesse culturelle et naturelle du Mexique lors de voyages mémorables avec ma copine.</p>
+                    
+                    <div class="gallery-multi">
+                         <img src="NY1.jpg" alt="Photo New York 1">
+                        <img src="NY2.jpg" alt="Photo New York 2">
+                        <img src="NY3.jpg" alt="Photo New York 3">
+                        <img src="Mexique1.jpg" alt="Photo Mexique 1">
+                        <img src="Mexique2.jpg" alt="Photo Mexique 2">
+                        <img src="Mexique3.jpg" alt="Photo Mexique 3">
+                    </div>
+                </div>
+
+                <div class="content-card fade-in">
+                    <h2>Cuba (2017)</h2>
+                    <p>Le voyage qui a le plus changé ma vie est sans aucun doute celui à Cuba en 2017 avec mes parents. La découverte de cette culture, de cette histoire et de la gentillesse de ses habitants a été une véritable révélation. C'est là-bas qu'est né mon amour pour la <a href="musique.html">musique latine</a>, qui ne m'a jamais quitté.</p>
+                    <p>Ce voyage m'a vraiment fait réfléchir sur moi, sur la valeur des choses simples, sur le bonheur matériel face à la richesse des relations humaines, et sur l'importance de vivre l'instant présent.</p>
+                
+                    <div class="gallery-single">
+                        <img src="Cuba.jpg" alt="Voyage à Cuba">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+         <div class="container">
+            <p>&copy; 2025 Enzo FRANCISCO-DELAGIS. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/enzo-francisco-delagis/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script> 
+</body>
+</html>

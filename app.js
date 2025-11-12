@@ -10,14 +10,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Fermer le menu mobile en cliquant sur un lien
-    document.querySelectorAll('.nav-links a').forEach(link => {
+    // Fermer le menu mobile en cliquant sur un lien (sauf le toggle du dropdown)
+    document.querySelectorAll('.nav-links a:not(.nav-dropdown-toggle)').forEach(link => {
         link.addEventListener('click', () => {
             if (navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
             }
         });
     });
+
+    // NOUVEAU: Logique pour Dropdown sur mobile
+    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+    if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', (e) => {
+            // Empêche le clic de fermer le menu mobile si on est déjà en mode mobile
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                const dropdown = dropdownToggle.parentElement;
+                dropdown.classList.toggle('open');
+            }
+        });
+    }
 
     // ===== Header qui change au scroll =====
     const header = document.getElementById('header');
@@ -112,4 +125,67 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-});
+    
+    // *************************************************
+    // NOUVEAU: Logique Lightbox Dynamique
+    // *************************************************
+        
+    // 1. Créer les éléments de la lightbox en JS
+    const lightbox = document.createElement('div');
+    lightbox.id = 'myLightbox';
+    lightbox.className = 'lightbox';
+    
+    const closeBtn = document.createElement('span');
+    closeBtn.className = 'close-lightbox';
+    closeBtn.innerHTML = '&times;';
+    
+    const lightboxImg = document.createElement('img');
+    lightboxImg.className = 'lightbox-content';
+    lightboxImg.id = 'lightboxImg';
+    
+    const captionText = document.createElement('div');
+    captionText.id = 'lightboxCaption';
+    
+    lightbox.appendChild(closeBtn);
+    lightbox.appendChild(lightboxImg);
+    lightbox.appendChild(captionText);
+    
+    document.body.appendChild(lightbox);
+
+    // 2. Ajouter les écouteurs d'événements
+    
+    // Fonction pour ouvrir la lightbox
+    function openLightbox(e) {
+        // Empêche le clic si l'image est dans un lien (comme les cartes de projet)
+        if (e.target.closest('a')) {
+            return;
+        }
+        lightbox.style.display = "block";
+        lightboxImg.src = e.target.src; 
+        captionText.innerHTML = e.target.alt;
+    }
+    
+    // Sélectionne TOUTES les images de galerie ET de projet sur N'IMPORTE QUELLE page
+    const galleryImages = document.querySelectorAll('.gallery-multi img, .gallery-single img, .projet-image img');
+    galleryImages.forEach(img => {
+        img.addEventListener('click', openLightbox);
+    });
+
+    // Fonction pour fermer
+    function closeLightbox() {
+        lightbox.style.display = "none";
+    }
+
+    // Clic sur le 'X' pour fermer
+    closeBtn.addEventListener('click', closeLightbox);
+    
+    // Clic sur le fond pour fermer
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) { // Clic sur le fond (pas l'image)
+             closeLightbox();
+        }
+    });
+    
+    // ===== Fin Logique Lightbox =====
+
+}); // Fin de DOMContentLoaded
